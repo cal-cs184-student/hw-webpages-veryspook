@@ -32,11 +32,11 @@
 
 		<br>
 
-		Link to webpage: <a href="https://cal-cs184-student.github.io/hw-webpages-veryspook/hw1/index.html">cs184.eecs.berkeley.edu/sp25</a>
+		Link to webpage: <a href="https://cal-cs184-student.github.io/hw-webpages-veryspook/hw1/index.html">cal-cs184-student.github.io/hw-webpages-veryspook/hw1/index.html</a>
 		
 		<br>
 
-		Link to GitHub repository: <a href="https://github.com/cal-cs184-student/hw-webpages-veryspook">cs184.eecs.berkeley.edu/sp25</a>
+		Link to GitHub repository: <a href="https://github.com/cal-cs184-student/hw-webpages-veryspook">github.com/cal-cs184-student/hw-webpages-veryspook</a>
 
 		<!-- <figure>
 			<img src="lion.jpg" alt="Lion" style="width:50%"/>
@@ -48,9 +48,9 @@
 		-->
 
 		<h2>Overview</h2>
-		Give a high-level overview of what you implemented in this homework. Think about what you've built as a whole. Share your thoughts on what interesting things you've learned from completing the homework.
+		Give a high-level overview of what you implemented in this homework. Think about what you've built as a whole. Share your thoughts on what interesting things you've learned from completing the homework. <br><br>
 
-		TODO!!!!
+		We implemented a graphic rendering engine during this homework. To do this, we had to implement various parts of an engine skeleton to draw images correctly, which revolved around drawing triangles correctly. A lot goes into rendering images at a level such as this, such as applying transforms, interpreting color values, sampling to accommodate for resolution changes, and so on. Texture mapping was very intriguing, considering that the process of mapping flat images into non-flat surfaces can be inherently complex.
 
 		<h2>Task 1: Drawing Single-Color Triangles</h2>
 		<b>Walk through how you rasterize triangles in your own words. </b><br>
@@ -132,7 +132,7 @@
 		<h2>Task 4: Barycentric coordinates</h2>
 		<b>Explain barycentric coordinates in your own words and use an image to aid you in your explanation. One idea is to use a svg file that plots a single triangle with one red, one green, and one blue vertex, which should produce a smoothly blended color triangle.</b> <br>
 		Barycentric coordinates are a coordinate system that allows for greater precision across a triangle. Coordinates of a point are determined by a proportion between the line from a point to a vertex and the line from the vertex to the line opposite from the vertex, applied to all three vertices in a triangle. <br> <br>
-		<b>Show a png screenshot of svg/basic/test7.svg with default viewing parameters and sample rate 1. If you make any additional images with color gradients, include them.<b><br>
+		<b>Show a png screenshot of svg/basic/test7.svg with default viewing parameters and sample rate 1. If you make any additional images with color gradients, include them.</b><br>
 			<table style="width: 100%; text-align: center; border-collapse: collapse;"></table>	
 			<td style="text-align: center;">
 					<img src="task4_2.png" width="400px"/>
@@ -148,19 +148,19 @@
 			<table style="width: 100%; text-align: center; border-collapse: collapse;">
 			  <tr>
 				<td style="text-align: center;">
-					<img src="task5_1.png" width="400px"/>
+					<img src="task5-1.png" width="350px"/>
 				  <figcaption>Nearest, 1 px</figcaption>
 				</td>
 				<td style="text-align: center;">
-				  <img src="task5_2.png" width="400px"/>
+				  <img src="task5-2.png" width="350px"/>
 				  <figcaption>Nearest, 16 px</figcaption>
 				</td>
 				<td style="text-align: center;">
-					<img src="task5_3.png" width="400px"/>
+					<img src="task5-3.png" width="350px"/>
 				  <figcaption>Bilinear, 1 px</figcaption>
 				</td>
 				<td style="text-align: center;">
-				  <img src="task5_4.png" width="400px"/>
+				  <img src="task5-4.png" width="350px"/>
 				  <figcaption>Bilinear, 16 px</figcaption>
 				</td>
 			  </tr>
@@ -175,7 +175,33 @@
 		<b>Explain level sampling in your own words and describe how you implemented it for texture mapping. </b> <br>
 		Level sampling uses mipmapping to keep the image clear when the texture is sampled too frequently (i.e. the image is rendered smaller than its texture’s resolution). This has smaller, “pre-blurred,” versions of the texture that prevent aliasing when zoomed out. For our implementation, we calculate the mipmap level with UV coordinate approximation with nearby samples, and choose an appropriate mipmap level that prevents both too much as well as too little detail from interfering with the image quality. We implemented a couple methods of level sampling, those being nearest as well as linear interpolation, which in combination with bilinear sampling, creates trilinear sampling. <br><br>
 		<b>You can now adjust your sampling technique by selecting pixel sampling, level sampling, or the number of samples per pixel. Describe the tradeoffs between speed, memory usage, and antialiasing power between the three various techniques. </b> <br> 
+		Increasing the number of samples per pixel (supersampling) is theoretically correct, increasing the accuracy of each pixel. However, increasing the sampling rate exponentially increases computation speed and memory usage, and relies on a very large number of samples to stop aliasing in very high frequency textures. <br>
+		Pixel sampling helps with the image when it’s zoomed in by interpolating between pixels. Bilinear sampling as opposed to nearest sampling helps prevent hard pixel edges in the texture, while not having too much computational overhead since linear interpolation is relatively cheap. <br>
+		Level sampling helps with sampling the image when it’s too small. Mipmapping creates logarithmically smaller versions of the image, which does require a bit more memory. However, as opposed to massive amounts of supersampling, it is much more efficient at preventing aliasing in shrunken textures. <br> <br>
+
 		<b>Using a png file you find yourself, show us four versions of the image, using the combinations of L_ZERO and P_NEAREST, L_ZERO and P_LINEAR, L_NEAREST and P_NEAREST, as well as L_NEAREST and P_LINEAR. </b><br>
+		<div style="display: flex; flex-direction: column; align-items: center;">
+			<table style="width: 100%; text-align: center; border-collapse: collapse;">
+			  <tr>
+				<td style="text-align: center;">
+					<img src="task6-1.png" width="350px"/>
+				  <figcaption>Layer Sampling Method: Zero, Pixel Sampling Method: Nearest </figcaption>
+				</td>
+				<td style="text-align: center;">
+					<img src="task6-3.png" width="350px"/>
+				  <figcaption>Layer Sampling Method: Nearest, Pixel Sampling Method: Nearest</figcaption>
+				</td>
+				<td style="text-align: center;">
+				  <img src="task6-2.png" width="350px"/>
+				  <figcaption>Layer Sampling Method: Zero, Pixel Sampling Method: Linear</figcaption>
+				</td>
+				<td style="text-align: center;">
+				  <img src="task6-4.png" width="350px"/>
+				  <figcaption>Layer Sampling Method: Nearest, Pixel Sampling Method: Linear</figcaption>
+				</td>
+			  </tr>
+			</table>
+		</div>
 
 		<!-- <h2>(Optional) Task 7: Extra Credit - Draw Something Creative!</h2>
 		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. -->
