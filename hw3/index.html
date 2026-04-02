@@ -74,7 +74,7 @@
 		
 		<h2>Part 2: Bounding Volume Hierarchy</h2>
 		<b>Walk through your BVH construction algorithm. Explain the heuristic you chose for picking the splitting point.</b><br>
-		Our BVH construction algorithm recursively splits the bounding box containing all of the primitives in a scene into smaller bounding boxes that are stored within one another in a tree-like structure. The location of the split is dependent on the average of the centroids for each of the primitives along each axis in order to achieve a balanced split between the primitives.<br><br>
+		Our BVH construction algorithm recursively splits the bounding box containing all of the primitives in a scene into smaller bounding boxes that are stored within one another in a tree. The location of the split is dependent on the average of the centroids for each of the primitives along each axis in order to achieve a balanced split between the primitives.<br><br>
 
 		<b>Show images with normal shading for a few large .dae files that you can only render with BVH acceleration.</b><br>
 		<div style="display: flex; flex-direction: column; align-items: center;">
@@ -225,7 +225,7 @@
 			  </tr>
 			</table>
 		</div><br>
-		Rasterization does not include the tints from the lights and calculates light levels directly, which prevents the effect of ambient light from appearing in the render. During the second and third bounce of light, tints of red and blue can be seen on the bunny, which correctly reflects the behavior of light rays picking up color from the red and blue walls throughout each bounce that ultimately results in ambient lighting found in the real world. <br><br>
+		Rasterization does not include the tints from the lights and calculates light levels directly, which prevents the effect of ambient light from appearing in the render. During the second and third bounce of light, tints of red and blue can be seen on the bunny, which correctly reflects the behavior of light rays picking up color from the red and blue walls throughout each bounce that ultimately results in ambient lighting found in the real world. Additionally, at m=2, you can see light reflecting off of the floor, which does not occur during rasterization. <br><br>
 
     	<b>Compare rendered views of accumulated and unaccumulated bounces for CBbunny.dae with max_ray_depth set to 0, 1, 2, 3, 4, and 5 (the -m flag). Use 1024 samples per pixel.</b><br>
 		<div style="display: flex; flex-direction: column; align-items: center;">
