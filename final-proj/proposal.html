@@ -1,0 +1,113 @@
+<html>
+	<head>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=default'></script>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+		<style>
+			h1 {
+				text-align: center;
+			}
+
+			.container {
+				margin: 0 auto;
+				padding: 60px 20%;
+			}
+
+			figure {
+				text-align: center;
+			}
+
+			img {
+				display: inline-block;
+			}
+
+			body {
+				font-family: 'Inter', sans-serif;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+		<h1>CS184/284A Spring 2026 Final Project Proposal</h1>
+		<h1>Worst Birthday Party Simulator</h1>
+		<div style="text-align: center;">Joshua Almario, Cesar Garcia Santana, Darren Ting, Ethan Ye</div>
+
+		<br>
+
+		Link to webpage: <a href="https://cal-cs184-student.github.io/hw-webpages-veryspook/hw1/index.html">cal-cs184-student.github.io/hw-webpages-veryspook/final-proj/proposal.html</a>
+		
+		<br>
+
+		<!-- Link to GitHub repository: <a href="https://github.com/cal-cs184-student/hw-webpages-veryspook">github.com/cal-cs184-student/hw-webpages-veryspook</a> -->
+
+		<!-- <figure>
+			<img src="lion.jpg" alt="Lion" style="width:50%"/>
+			<figcaption>Cool </figcaption>
+		</figure> -->
+
+		<!--
+		We've already added one heading per task, to make your write-up as navigable when grading. Please fit your write-up within these sections!
+		-->
+
+		<h2>Summary</h2>
+		Our project is a volumetric smoke simulation in a 3D environment created using the Unity game engine. We hope to accurately replicate scenarios by modeling smoke as an incompressible fluid.
+		<h2>Problem Description</h2>
+		Smoke particles can be created visually in Unity using the native particle systems within the engine, but there is currently no support for dynamic 3D smoke simulations that accurately depict the behavior of smoke in the real world, such as the cases where smoke fills a room or when a window is opened in a smoke-filled room. With our project, we hope to create a realistic depiction of smoke particles by treating it as an incompressible fluid. With this approach, we hope to accurately simulate smoke in a performance-friendly manner. 		
+		<h3> Plans </h3>
+		Questions that we hope to answer with our project are the following:
+		<ul>
+			<li>What are the components of smoke that control how it looks?</li>
+			<li>Is it viable to have real-time 3D smoke simulation?</li>
+			<li>What optimizations can improve performance and reduce system load when rendering fluids?</li>
+			<li>Can utilization of Unity’s built-in volumetric fog in tandem with fluid simulation create acceptable realistic looking smoke?</li>
+		</ul>
+		We would create a 3D demo within Unity that depict various situations in which smoke would be present. Scenes would include, as mentioned earlier, smoke progressively filling up a room or smoke being released out of an open window.
+		The main demo would depict an indoor scene with a candle on a birthday cake producing smoke in a enclosed room.
+		Our performance metrics would include FPS for performance, and divergence error for accuracy in modeling an incompressible fluid.
+		<h3> Stretch Goals </h3>
+		Our main stretch goal would be to make the scene interactive using Unity functionality. A moving camera that comes with player movement may cause complications in regards to rendering, which would make rendering more difficult, and would require our algorithms to be sufficiently efficient.
+		<h2>Schedule</h2>
+		<h3>Week 1</h3>
+		<ul>
+			<li>Gather resources/answer questions</li>
+			<li>What equations model smoke?</li>
+			<li>How to alter Unity's existing graphics pipelines?</li>
+			<li>What are common smoke implementations in Unity that people have used in the past?</li>
+			<li>Set up Unity project repository</li>
+			<li>Assemble scenes using basic objects/free-to-use assets</li>
+		</ul>
+		<h3>Week 2</h3>
+		<ul>
+			<li>Complete milestone report</li>
+			<li>Record video depicting progress at this point in time</li>
+			<li>Put together milestone webpage and slides</li>
+			<li>Implementing smoke using scripts and changes to graphics pipeline</li>
+			<li>Set up simple interactable user interface</li>
+		</ul>
+		<h3>Week 3</h3>
+		<ul>
+			<li>Basic bug fixes/checking functionality</li>
+			<li>Testing scenes for proper smoke behavior</li>	
+		</ul>
+		<h3>Week 4</h3>
+		<ul>
+			<li>Final bug fixes and polish</li>	
+			<li>Building and exporting project</li>	
+			<li>If time, adding user functionality</li>	
+			<li>Final Deliverables </li>
+			<li>Record video depicting final product</li>
+			<li>Put together final webpage</li>
+			<li>Create two sets of slides </li>
+			<li>Rehearse slideshows</li>
+		</ul>
+		<h2>Resources</h2>
+		We will be using the Unity platform for our purposes, since it comes with a <a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.high-definition@12.0/manual/Getting-started-with-HDRP.html">graphics pipeline</a> that we can utilize for rendering smoke.<br>
+		<a href="https://docs.unity3d.com/6000.4/Documentation/Manual/class-Texture3D-introduction.html">3D textures in Unity reference</a><br>
+		<a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.high-definition@14.0/manual/Local-Volumetric-Fog.html">Volumetric fog in Unity</a><br>
+		<a href="https://rachelbhadra.github.io/smoke_simulator/index.html">Example project report from past years about smoke simulations</a><br>
+		<a href="https://code.tutsplus.com/how-to-write-a-smoke-shader--cms-25587t">How to write a smoke shader</a><br>
+		<a href="https://en.wikipedia.org/wiki/Navier%E2%80%93Stokes_equations">Navier-Stokes equations</a><br>
+
+		
+		</div>
+	</body>
+</html>
