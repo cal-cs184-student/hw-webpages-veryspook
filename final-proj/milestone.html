@@ -36,7 +36,7 @@
 		<br>
 		Link to slideshow: <a href="https://docs.google.com/presentation/d/1mQyeKdNrTOX-dDwOuO-s5hN1ywunHoC_W2gQ2mE2Q00/edit?usp=sharing">https://docs.google.com/presentation/d/1mQyeKdNrTOX-dDwOuO-s5hN1ywunHoC_W2gQ2mE2Q00/edit?usp=sharing</a>
 		<br>
-		Link to video: <a href="https://github.com/cal-cs184-student/hw-webpages-veryspook">github.com/cal-cs184-student/hw-webpages-veryspook</a>
+		Link to video: <a href="https://drive.google.com/file/d/1dqQpnRzdmPBmuPzSi9Za-oEt2YRlkWNt/view?usp=sharing">https://drive.google.com/file/d/1dqQpnRzdmPBmuPzSi9Za-oEt2YRlkWNt/view?usp=sharing</a>
 
 		<!-- <figure>
 			<img src="lion.jpg" alt="Lion" style="width:50%"/>
@@ -48,7 +48,7 @@
 		-->
 
 		<h2>Synopsis</h2>
-		Our project on simulating volumetric smoke now has clear direction in regards to implementation and achievable goals. We will follow the implementation as detailed by Jos Stam’s paper <a href="https://dl.acm.org/doi/epdf/10.1145/341852.341866">Interacting with Smoke and Fire in Real Time (2003)</a>. The implementation involves modeling a 3D space as a cubic grid containing velocity and density values of the fluid such that the resulting rendering of the fluid bilinearly interpolates its fluid properties at any point within the space. The implementation still uses the Navier-Stokes equations as detailed in our proposal, since it is crucial for modeling fluid dynamics. We will also implement a solver for the propagation of densities such that the steps that the fluid takes within the space can be definitively reduced back to its initial state. And thanks to the Unity Engine, we can use a material preset within the engine to easily model the fluid as smoke as well as the High Definition Render Pipeline for additional smoke effects.
+		Our project on simulating volumetric smoke now has clear direction in regards to implementation and achievable goals. We will follow the implementation as detailed by Jos Stam’s papers <a href="https://dl.acm.org/doi/epdf/10.1145/341852.341866">Interacting with Smoke and Fire in Real Time (2003)</a> and <a href="https://www.researchgate.net/publication/2560062_Real-Time_Fluid_Dynamics_for_Games">Real-Time Fluid Dynamics in Games</a>. The implementation involves modeling a 3D space as a cubic grid containing velocity and density values of the fluid such that the resulting rendering of the fluid bilinearly interpolates its fluid properties at any point within the space. The implementation still uses the Navier-Stokes equations as detailed in our proposal, since it is crucial for modeling fluid dynamics. We will also implement a solver for the propagation of densities such that the steps that the fluid takes within the space can be definitively reduced back to its initial state. And thanks to the Unity Engine, we can use a material preset within the engine to easily model the fluid as smoke as well as the High Definition Render Pipeline for additional smoke effects.
 
 		<h2>Progress</h2>
 		Most of our time was spent finding a performance-friendly and efficient manner in which to render the smoke. After finding a method that we were all satisfied with, we set up the Unity project and started figuring out how to begin rendering the smoke within the 3D space. We laid some boilerplate code down for the structure of the fluid grid, as well as a temporary visual for the velocities at the smoke.
