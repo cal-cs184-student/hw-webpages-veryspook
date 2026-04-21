@@ -28,16 +28,15 @@
 	<body>
 		<div class="container">
 		<h1>CS184/284A Spring 2026 Final Project Proposal</h1>
-		<h1>Title</h1>
-		<div style="text-align: center;">Names: Joshua Almario, Darren Ting,  </div>
+		<h1>Worst Birthday Party Simulator</h1>
+		<div style="text-align: center;">Joshua Almario, Cesar Garcia Santana, Darren Ting, Ethan Ye</div>
 
 		<br>
-
-		Link to webpage: <a href="https://cal-cs184-student.github.io/hw-webpages-veryspook/hw1/index.html">cal-cs184-student.github.io/hw-webpages-veryspook/hw1/index.html</a>
-		
+		Link to webpage: <a href="https://cal-cs184-student.github.io/hw-webpages-veryspook/final-proj/milestone.html">https://cal-cs184-student.github.io/hw-webpages-veryspook/final-proj/milestone.html</a>
 		<br>
-
-		Link to GitHub repository: <a href="https://github.com/cal-cs184-student/hw-webpages-veryspook">github.com/cal-cs184-student/hw-webpages-veryspook</a>
+		Link to slideshow: <a href="https://docs.google.com/presentation/d/1mQyeKdNrTOX-dDwOuO-s5hN1ywunHoC_W2gQ2mE2Q00/edit?usp=sharing">https://docs.google.com/presentation/d/1mQyeKdNrTOX-dDwOuO-s5hN1ywunHoC_W2gQ2mE2Q00/edit?usp=sharing</a>
+		<br>
+		Link to video: <a href="https://github.com/cal-cs184-student/hw-webpages-veryspook">github.com/cal-cs184-student/hw-webpages-veryspook</a>
 
 		<!-- <figure>
 			<img src="lion.jpg" alt="Lion" style="width:50%"/>
@@ -48,18 +47,14 @@
 		We've already added one heading per task, to make your write-up as navigable when grading. Please fit your write-up within these sections!
 		-->
 
-		<h2>Summary</h2>
-		
-		<h2>Problem Description</h2>
-		<h3> Plans </h3>
-		<h3> Intended Results </h3>
+		<h2>Synopsis</h2>
+		Our project on simulating volumetric smoke now has clear direction in regards to implementation and achievable goals. We will follow the implementation as detailed by Jos Stam’s paper <a href="https://dl.acm.org/doi/epdf/10.1145/341852.341866">Interacting with Smoke and Fire in Real Time (2003)</a>. The implementation involves modeling a 3D space as a cubic grid containing velocity and density values of the fluid such that the resulting rendering of the fluid bilinearly interpolates its fluid properties at any point within the space. The implementation still uses the Navier-Stokes equations as detailed in our proposal, since it is crucial for modeling fluid dynamics. We will also implement a solver for the propagation of densities such that the steps that the fluid takes within the space can be definitively reduced back to its initial state. And thanks to the Unity Engine, we can use a material preset within the engine to easily model the fluid as smoke as well as the High Definition Render Pipeline for additional smoke effects.
 
-		<h2>Schedule</h2>
-		<h3>Week 1</h3>
-		<h3>Week 2</h3>
-		<h3>Week 3</h3>
-		<h3>Week 4</h3>
-		<h2>Resources</h2>
+		<h2>Progress</h2>
+		Most of our time was spent finding a performance-friendly and efficient manner in which to render the smoke. After finding a method that we were all satisfied with, we set up the Unity project and started figuring out how to begin rendering the smoke within the 3D space. We laid some boilerplate code down for the structure of the fluid grid, as well as a temporary visual for the velocities at the smoke.
+
+		<h2>Roadmap</h2>
+		With the two or so weeks that we have left for the project, we hope to finish the implementation for volumetric smoke using Stam’s model. Afterwards, supplemental details will be on a “if there is time” basis. These details include experimenting with lighting effects and supporting multiple different scenarios in addition to the initial “candle on a birthday cake” case. 
 
 		
 		</div>
