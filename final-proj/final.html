@@ -27,17 +27,10 @@
 	</head>
 	<body>
 		<div class="container">
-		<h1>CS184/284A Spring 2026 Final Project Proposal</h1>
-		<h1>Title</h1>
-		<div style="text-align: center;">Names: Joshua Almario, Darren Ting,  </div>
+		<h1>CS184 Spring 2026 Final Project</h1>
+		<h1>Worst Birthday Party Simulator</h1>
+		<div style="text-align: center;">Names: Joshua Almario, Darren Ting, Cesar Garcia Santana, Ethan Ye</div>
 
-		<br>
-
-		Link to webpage: <a href="https://cal-cs184-student.github.io/hw-webpages-veryspook/hw1/index.html">cal-cs184-student.github.io/hw-webpages-veryspook/hw1/index.html</a>
-		
-		<br>
-
-		Link to GitHub repository: <a href="https://github.com/cal-cs184-student/hw-webpages-veryspook">github.com/cal-cs184-student/hw-webpages-veryspook</a>
 
 		<!-- <figure>
 			<img src="lion.jpg" alt="Lion" style="width:50%"/>
@@ -48,18 +41,51 @@
 		We've already added one heading per task, to make your write-up as navigable when grading. Please fit your write-up within these sections!
 		-->
 
-		<h2>Summary</h2>
-		
-		<h2>Problem Description</h2>
-		<h3> Plans </h3>
-		<h3> Intended Results </h3>
+		<h2>Abstract</h2>
+		For many developers, smoke is rendered in the Unity engine using native particle systems. However, there is currently no support within the engine for dynamic 3D smoke simulations that accurately depict the behavior of smoke in the real world, such as the cases where smoke fills a room or when a window is opened in a smoke-filled room. With our project, we created a realistic depiction of smoke within Unity by treating it as an incompressible fluid and applying Navier-Stokes equations to it to simulate its behavior in various scenes. With this approach, we found a way to accurately simulate smoke in a performance-friendly manner. 
+		<h2>Technical Approach</h2>
+		We took inspiration from the implementation detailed by Jos Stam’s papers “Smoke and Fire in Real Time” and "Real-Time Fluid Dynamics for Games" for simulating smoke. Our implementation involves modeling a 3D space as a cubic grid containing velocity and density values of the fluid such that the resulting rendering of the fluid bilinearly interpolates its fluid properties at any point within the space. The implementation uses the Navier-Stokes equations to regulate the density and velocity values of the fluid. We also implemented a solver for the propagation of densities such that the steps that the fluid takes within the space can be definitively reduced back to its initial state. <br>
+	
+		The primary difference between our implementation and the code snippets included in Stam’s papers is the dimensionality. The code extrapolated the original code into a 3D space by storing 3D arrays of fluid values, along with altering the substeps within the iteration. An example of this alteration lies in the density and velocity values, where the fluid density is stored in the middle of each cubic cell, while velocity changes are stored on the faces between each cubic cell. <br>
 
-		<h2>Schedule</h2>
-		<h3>Week 1</h3>
-		<h3>Week 2</h3>
-		<h3>Week 3</h3>
-		<h3>Week 4</h3>
-		<h2>Resources</h2>
+
+		Thanks to the Unity Engine, we can also use a 3D smoke texture using Unity’s Shader Graphs within the engine to visually represent the fluid. After creating the shader to render the smoke, we attached it to a volumetric fog object to allow the player to walk inside of the smoke. This allows for us to represent the scenes that we had planned, including the interactive candle on a birthday cake scene. <br>
+
+		<h2> Problems and Lessons </h2>
+		We faced some issues with performance early on, where the smoke that we rendered would result in 4-6 FPS on our laptops. To fix this, we found many parts of our simulation code that we could parallelize using a variation of the Gauss-Seidel method. The variation that we used is the red-black Gauss-Seidel method, which involves calculating cell values in alternating fashion, much like a checkerboard. Additionally, the behavior of our smoke differed slightly from its real-life counterpart, so we added some extra conditions to our smoke such as temperature and voracity, which determines the swirliness of the smoke. We learned through these improvements that iterating upon our simulation by incorporating new strategies and parameters that further control behavior aids the accuracy and efficiency of our smoke overall, which encompasses our primary goals for the simulation.
+
+		<h2>Results</h2>
+		The following images showcase our smoke simulation and its many components.
+
+		<div style="display: flex; flex-direction: column; align-items: center;">
+			<table style="width: 100%; text-align: center; border-collapse: collapse;">
+			  <tr>
+				<td style="text-align: center;">
+				  <img src="low.gif" width="400px"/>
+				  <figcaption>Low emitter rate</figcaption>
+				</td>
+				<td style="text-align: center;">
+				  <img src="med.gif" width="400px"/>
+				  <figcaption>Medium emitter rate</figcaption>
+				</td>
+				<td style="text-align: center;">
+				  <img src="med.gif" width="400px"/>
+				  <figcaption>High emitter rate</figcaption>
+				</td>
+			  </tr>
+			</table>
+		</div>
+
+		<h2>References</h2>
+		<a href="https://www.researchgate.net/publication/2560062_Real-Time_Fluid_Dynamics_for_Games">Real-Time Fluid Dynamics for Games</a><br>
+		<a href="https://www.dgp.toronto.edu/public_user/stam/reality/Research/pdf/ns.pdf">Stable Fluids</a>	<br>
+		<a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.high-definition@14.0/manual/Local-Volumetric-Fog.html">Volumetric Fog in Unity</a>	<br>
+		<a href="https://www.youtube.com/watch?v=Q78wvrQ9xsU">Simulating Smoke by Sebastian Lague</a>	<br>
+		<h2>Contributions</h2>
+		Josh - Deliverable submissions, Unity project setup, movement & UI, Unity scene composition<br>
+		Darren - Set up volumetric fog, Unity scene composition<br>
+		Cesar - Implemented Jos Stam simulation and solver, created 3D texture<br>
+		Ethan - Implemented Jos Stam simulation and solver, created external force support<br>
 
 		
 		</div>
